@@ -66,21 +66,27 @@ public class ReadApp {
 				bw.write("No Application Found for Wave !...");
 			else{
 				
-				/*for (Entry<String, Map<Integer, String>> pair : map.entrySet()) {
-					
-					writeToFile(bw,);
-				}*/
-				
+				for (Entry<String, Map<Integer, String>> entry : map.entrySet()) {
+				    //String letter = entry.getKey();
+				    
+				    bw.write("\n\n****\t"+entry.getKey()+" Application List\t****\n");
+				    
+				    for (Map.Entry<Integer, String> nameEntry : entry.getValue().entrySet()) {
+				    	Integer key = nameEntry.getKey();
+				        String value = nameEntry.getValue();
+				        writeToFile(bw,key,value); 
+				    }
+				}				
 				
 			
-				bw.write("****\tWave1 Application List\t****\n\n");
+				/*bw.write("****\tWave1 Application List\t****\n\n");
 				if (map.containsKey("wave1")) {
 
 					 Map<Integer, String> wave1Map = map.get("wave1");
 					 for (Entry<Integer, String> pair : wave1Map.entrySet()) {
 							bw.write("\n");
 							bw.write(pair.getKey() +" "+ pair.getValue());
-						}
+					}
 				}
 				bw.write("\n\n\n****\tWave2 Application List\t****\n\n");
 				if (map.containsKey("wave2")) {
@@ -89,7 +95,7 @@ public class ReadApp {
 					 for (Entry<Integer, String> pair : wave2Map.entrySet()) {
 							bw.write("\n");
 							bw.write(pair.getKey() +" "+ pair.getValue());
-						}
+					}
 				}
 				bw.write("\n\n\n****\tWave3 Application List\t****\n\n");
 				if (map.containsKey("wave3")) {
@@ -98,8 +104,8 @@ public class ReadApp {
 					 for (Entry<Integer, String> pair : wave3Map.entrySet()) {
 							bw.write("\n");
 							bw.write(pair.getKey() +" "+ pair.getValue());
-						}
-				}
+					}
+				}*/
 			}				
 			bw.close();fw.close();
 		}
@@ -108,8 +114,9 @@ public class ReadApp {
 		}
 	}
 
-	private static void writeToFile() {
-		// TODO Auto-generated method stub
+	private static void writeToFile(BufferedWriter bw, Integer key, String value) throws IOException {
 		
+		bw.write("\n");
+		bw.write(key.toString()+" "+value);
 	}
 }
