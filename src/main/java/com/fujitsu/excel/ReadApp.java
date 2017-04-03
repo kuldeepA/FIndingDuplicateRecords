@@ -65,6 +65,13 @@ public class ReadApp {
 			if(map.isEmpty())
 				bw.write("No Application Found for Wave !...");
 			else{
+				
+				/*for (Entry<String, Map<Integer, String>> pair : map.entrySet()) {
+					
+					writeToFile(bw,);
+				}*/
+				
+				
 			
 				bw.write("****\tWave1 Application List\t****\n\n");
 				if (map.containsKey("wave1")) {
@@ -84,11 +91,25 @@ public class ReadApp {
 							bw.write(pair.getKey() +" "+ pair.getValue());
 						}
 				}
+				bw.write("\n\n\n****\tWave3 Application List\t****\n\n");
+				if (map.containsKey("wave3")) {
+
+					 Map<Integer, String> wave3Map = map.get("wave3");
+					 for (Entry<Integer, String> pair : wave3Map.entrySet()) {
+							bw.write("\n");
+							bw.write(pair.getKey() +" "+ pair.getValue());
+						}
+				}
 			}				
 			bw.close();fw.close();
 		}
 		catch(IOException e) {
 			e.printStackTrace();
 		}
+	}
+
+	private static void writeToFile() {
+		// TODO Auto-generated method stub
+		
 	}
 }
