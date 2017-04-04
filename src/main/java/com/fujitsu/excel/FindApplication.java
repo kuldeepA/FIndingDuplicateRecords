@@ -2,6 +2,7 @@ package com.fujitsu.excel;
 
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
@@ -10,7 +11,7 @@ public class FindApplication {
 	
 	public static Map<String, Map<Integer, String>> checkExists(Map<Integer, String> appMap, List<Integer> list) {
 		
-		Map<String,Map<Integer,String>> waveMap = new HashMap<String,Map<Integer,String>>();
+		Map<String,Map<Integer,String>> waveMap = new LinkedHashMap<String,Map<Integer,String>>();
 		Map<Integer,String> wave1Map = new TreeMap<Integer,String>();
 		Map<Integer,String> wave2Map = new TreeMap<Integer,String>();
 		Map<Integer,String> wave3Map = new TreeMap<Integer,String>();

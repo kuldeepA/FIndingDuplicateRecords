@@ -33,7 +33,8 @@ public class ReadApp {
 				} else if (line.trim().length() > 0 && (line.contains("No presence"))) {
 					//String[] time = line.split(" AM| PM");
 					String[] time = line.split("No presence");
-					if(fLine.trim().equalsIgnoreCase(appName[0].trim()+"-"+time[0].trim())) {
+					System.out.println(fLine+" == "+appName[0].trim()+"-"+time[0]);
+					if((fLine.trim().equalsIgnoreCase(appName[0].trim()+"-"+time[0].trim()) || (fLine.trim().equalsIgnoreCase(appName[0].trim()+"New"+"-"+time[0].trim())))) {
 						break;
 					}
 				}
