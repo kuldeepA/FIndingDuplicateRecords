@@ -7,6 +7,7 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -15,7 +16,8 @@ public class ReadApp {
 
 	public static List<Integer> read(){
 		
-		List<Integer> list = new ArrayList<Integer>();
+		//List<Integer> list = new ArrayList<Integer>();
+		List<Integer> list = new LinkedList<Integer>();
 		BufferedReader br =null;
 		try {
 			
@@ -33,8 +35,9 @@ public class ReadApp {
 				} else if (line.trim().length() > 0 && (line.contains("No presence"))) {
 					//String[] time = line.split(" AM| PM");
 					String[] time = line.split("No presence");
-					System.out.println(fLine+" == "+appName[0].trim()+"-"+time[0]);
+					//System.out.println(fLine+" == "+appName[0].trim()+"-"+time[0]);
 					if((fLine.trim().equalsIgnoreCase(appName[0].trim()+"-"+time[0].trim()) || (fLine.trim().equalsIgnoreCase(appName[0].trim()+"New"+"-"+time[0].trim())))) {
+						list.remove(list.size()-1);
 						break;
 					}
 				}
