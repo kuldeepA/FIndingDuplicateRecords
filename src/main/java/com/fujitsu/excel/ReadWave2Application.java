@@ -26,7 +26,8 @@ public class ReadWave2Application {
 		Map<Integer,String> map = new HashMap<Integer,String>();
 		try {
 
-			InputStream excelFile = new FileInputStream("C:"+File.separator+"Master-Data-Validation-Report.xlsx");
+			//InputStream excelFile = new FileInputStream("C:"+File.separator+"Master-Data-Validation-Report.xlsx");
+			InputStream excelFile = new FileInputStream("C:"+File.separator+"Master Data Validation Report.xlsx");
 			workbook = new XSSFWorkbook(excelFile);
 			Sheet datatypeSheet = workbook.getSheetAt(1);			
 			Iterator<Row> iterator = datatypeSheet.iterator();
