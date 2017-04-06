@@ -12,6 +12,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 
+import com.fujitsu.core.ReadUtils;
+
 public class ReadApp {
 
 	public static List<Integer> read(){
@@ -30,7 +32,11 @@ public class ReadApp {
 				if (line.trim().length() > 0 && line.trim().endsWith(".xlsx")) {					
 					String[] values = line.split("__");
 					appName = line.split(".xlsx");
-					list.add(Integer.parseInt(values[1]));
+					//list.add(Integer.parseInt(values[1]));
+					if (ReadUtils.isNumeric(values[1]))
+						list.add(Integer.parseInt(values[1]));
+					else
+						list.add(Integer.parseInt(values[2]));
 				} else if (line.trim().length() > 0 && (line.contains("No presence"))) {
 					String[] time = line.split("No presence");
 					if((fLine.trim().equalsIgnoreCase(appName[0].trim()+"-"+time[0].trim()) || (fLine.trim().equalsIgnoreCase(appName[0].trim()+"New"+"-"+time[0].trim())))) {
