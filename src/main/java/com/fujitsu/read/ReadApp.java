@@ -16,15 +16,14 @@ public class ReadApp {
 
 	public static List<Integer> read(){
 		
-		//List<Integer> list = new ArrayList<Integer>();
 		List<Integer> list = new LinkedList<Integer>();
 		BufferedReader br =null;
+		FileReader fr = null;
 		try {
-			
-			br = new BufferedReader(new FileReader("C:"+File.separator+"application.txt"));
+			fr = new FileReader("C:"+File.separator+"application.txt");
+			br = new BufferedReader(fr);
 			String line = br.readLine();
 			String fLine = line;
-			//while ((line = br.readLine()) != null) {	
 			String[] appName = null;
 			while (line != null) {				
 				
@@ -33,9 +32,7 @@ public class ReadApp {
 					appName = line.split(".xlsx");
 					list.add(Integer.parseInt(values[1]));
 				} else if (line.trim().length() > 0 && (line.contains("No presence"))) {
-					//String[] time = line.split(" AM| PM");
 					String[] time = line.split("No presence");
-					//System.out.println(fLine+" == "+appName[0].trim()+"-"+time[0]);
 					if((fLine.trim().equalsIgnoreCase(appName[0].trim()+"-"+time[0].trim()) || (fLine.trim().equalsIgnoreCase(appName[0].trim()+"New"+"-"+time[0].trim())))) {
 						list.remove(list.size()-1);
 						break;
@@ -43,13 +40,17 @@ public class ReadApp {
 				}
 				line = br.readLine();
 			}
+			fr.close();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		finally {
 			try {
-				br.close();
+				if (br != null)
+					br.close();
+				//if (fr != null)
+					//fr.close();
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -71,9 +72,8 @@ public class ReadApp {
 			else{
 				
 				for (Entry<String, Map<Integer, String>> entry : map.entrySet()) {
-				    //String letter = entry.getKey();
 				    
-				    bw.write("\n\n****\t"+entry.getKey()+" Application List\t****\n");
+				    bw.write("\n\n#####\t"+entry.getKey()+" Application List\t#####\n");
 				    
 				    for (Map.Entry<Integer, String> nameEntry : entry.getValue().entrySet()) {
 				    	Integer key = nameEntry.getKey();
@@ -111,7 +111,8 @@ public class ReadApp {
 					}
 				}*/
 			}				
-			bw.close();fw.close();
+			bw.close();
+			fw.close();
 		}
 		catch(IOException e) {
 			e.printStackTrace();
