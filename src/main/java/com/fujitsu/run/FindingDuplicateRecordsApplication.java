@@ -1,7 +1,11 @@
-package com.fujitsu.excel;
+package com.fujitsu.run;
 
 import java.util.List;
 import java.util.Map;
+
+import com.fujitsu.read.FindApplication;
+import com.fujitsu.read.ReadApp;
+import com.fujitsu.read.ReadWave2Application;
 
 public class FindingDuplicateRecordsApplication {
 

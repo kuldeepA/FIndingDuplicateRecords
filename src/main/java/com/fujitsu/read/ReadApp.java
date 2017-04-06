@@ -1,4 +1,4 @@
-package com.fujitsu.excel;
+package com.fujitsu.read;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
