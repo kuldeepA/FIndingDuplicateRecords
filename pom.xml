@@ -45,7 +45,7 @@
 					<archive>
 						<manifest>
 							<addClasspath>true</addClasspath>
-							<mainClass>com.fujitsu.excel.FindingDuplicateRecordsApplication</mainClass> 
+							<mainClass>com.fujitsu.run.FindingDuplicateRecordsApplication</mainClass> 
 							<classpathPrefix>lib/</classpathPrefix>
 						</manifest>
 						<!-- <manifestEntries>
